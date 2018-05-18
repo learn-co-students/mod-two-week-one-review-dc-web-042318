@@ -1,28 +1,41 @@
-<%= form_for @sea do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<div class="container">
+  <%= form_for @sea do |f|%>
+    <p><%= f.label :name %></p></p>
+    <%= f.text_field :name, class: "form-control" %>
+    <p><%= f.label :temperature%></p>
+    <%= f.number_field :temperature, class: "form-control" %>
 
-  <%= f.label :temperature %>
-  <%= f.number_field :temperature %>
+    <p><%= f.label :bio%></p>
+    <%= f.text_area :bio, class: "form-control" %>
 
-  <%= f.label :bio %>
-  <%= f.text_area :bio %>
+    <p><%= f.label :image_url%></p>
+    <%= f.text_field :image_url, class: "form-control" %>
 
-  <%= f.label :image_url %>
-  <%= f.text_field :image_url %>
+    <p><%= f.label :mood%></p>
+    <%= f.text_field :mood, class: "form-control" %>
 
-  <%= f.label :mood %>
-  <%= f.text_field :mood %>
+    <p><%= f.label :favorite_color%></p>
+    <%= f.text_field :favorite_color, class: "form-control" %>
 
-  <%= f.label :favorite_color %>
-  <%= f.text_field :favorite_color %>
+    <p><%= f.label :scariest_creature%></p>
+    <%= f.text_field :scariest_creature, class: "form-control" %>
 
-  <%= f.label :scariest_creature %>
-  <%= f.text_field :scariest_creature %>
+    <%= f.label :has_mermaids%>
+    <%= f.check_box :has_mermaids%>
 
-  <%= f.label :has_mermaids %>
-  <%= f.check_box :has_mermaids %>
+    <%=  f.submit class: "form-control btn btn-info" %>
 
-  <%=  f.submit %>
-
-  <% end %>
+    <% end %>
+  <div class="text-center row" style="margin: 1em">
+  <div class="col-sm-1">
+    <button class="btn btn-info" style="margin: 0 auto"><a href="/seas/<%=@sea.id%>">Back</a></button>
+  </div>
+  <div class="col-sm-1">
+    <button class="btn btn-info" style="margin: 0 auto"><a class="btn-info" href="/seas">All Seas</a></button>
+  </div>
+  <div class="col-sm-9">
+  </div>
+  <div class="col-sm-1">
+    <%= button_to 'Delete', { controller: :seas, action: :destroy, id: @sea.id }, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"%>
+  </div>
+</div>
